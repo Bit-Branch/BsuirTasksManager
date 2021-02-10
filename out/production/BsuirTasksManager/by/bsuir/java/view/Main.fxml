@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.bsuir.java.view.Main">
+   <children>
+      <AnchorPane fx:id="tasksAnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #808080;">
+         <children>
+            <TableView fx:id="tasksTableView" layoutX="147.0" layoutY="6.0" prefHeight="388.0" prefWidth="453.0">
+              <columns>
+                <TableColumn fx:id="taskNameColumn" prefWidth="75.0" text="Название" />
+                <TableColumn fx:id="beginColumn" prefWidth="107.0" text="Время начала" />
+                  <TableColumn fx:id="endColumn" prefWidth="111.0" text="Время окончания" />
+                  <TableColumn fx:id="employeeIdColumn" prefWidth="83.0" text="ИД рабочего" />
+                  <TableColumn fx:id="projectIdColumn" prefWidth="76.0" text="ИД проекта" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+      <AnchorPane fx:id="workersAnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #808080;">
+         <children>
+            <TableView fx:id="workersTableView" layoutX="147.0" layoutY="6.0" prefHeight="388.0" prefWidth="453.0">
+              <columns>
+                <TableColumn fx:id="surnameColumn" prefWidth="129.0" text="Фамилия" />
+                <TableColumn fx:id="nameColumn" prefWidth="116.0" text="Имя" />
+                  <TableColumn fx:id="positionColumn" prefWidth="109.0" text="Должность" />
+                  <TableColumn fx:id="laborColumn" prefWidth="98.0" text="Трудоемкость" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+      <AnchorPane fx:id="addWorkerAnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #808080;">
+         <children>
+            <TextField fx:id="surnameTextField" layoutX="283.0" layoutY="63.0" promptText="Фамилия" />
+            <TextField fx:id="nameTextField" layoutX="283.0" layoutY="102.0" promptText="Имя" />
+            <TextField fx:id="laborTextField" layoutX="283.0" layoutY="175.0" promptText="Трудоемкость" />
+            <Button fx:id="addWorkerButton" layoutX="296.0" layoutY="218.0" mnemonicParsing="false" style="-fx-background-color: transient; -fx-border-color: black;" text="Добавить рабочего" />
+            <ComboBox fx:id="positionComboBox" layoutX="283.0" layoutY="137.0" prefWidth="150.0" promptText="Должность" />
+            <Label fx:id="addWorkerError" layoutX="282.0" layoutY="267.0" text="Label" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="graphAnchorPane" prefHeight="394.0" prefWidth="600.0" style="-fx-background-color: #808080;">
+         <children>
+            <BarChart fx:id="someChart" layoutX="147.0" prefHeight="388.0" prefWidth="453.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children></AnchorPane>
+      <AnchorPane fx:id="projectsAnchorPane" layoutX="145.0" layoutY="6.0" prefHeight="388.0" prefWidth="453.0" style="-fx-background-color: #808080;">
+         <children>
+            <TableView fx:id="projectsTableView" prefHeight="204.0" prefWidth="453.0">
+              <columns>
+                <TableColumn fx:id="projectNameColumn" prefWidth="73.0" text="Название" />
+                <TableColumn fx:id="projectPeopleCountColumn" prefWidth="203.0" text="Количество человек на проекте" />
+                  <TableColumn fx:id="tasksCountColumn" prefWidth="175.0" text="Число заданий на проекте" />
+              </columns>
+            </TableView>
+            <TextField fx:id="addProjectTextField" layoutX="146.0" layoutY="260.0" />
+            <Label fx:id="addProjectError" layoutX="207.0" layoutY="227.0" text="Label" />
+            <Button fx:id="addProjectButton" layoutX="151.0" layoutY="303.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Добавить проект" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addTaskAnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #808080;">
+         <children>
+            <ComboBox fx:id="projectComboBox" layoutX="279.0" layoutY="96.0" prefWidth="150.0" promptText="Проект" />
+            <ComboBox fx:id="employeeComboBox" layoutX="279.0" layoutY="139.0" prefWidth="150.0" promptText="Рабочий" />
+            <TextField fx:id="taskNameTextField" layoutX="279.0" layoutY="58.0" promptText="Название" />
+            <DatePicker fx:id="startDatePicker" layoutX="279.0" layoutY="175.0" prefHeight="25.0" prefWidth="150.0" promptText="Время начала" />
+            <DatePicker fx:id="endDatePicker" layoutX="280.0" layoutY="217.0" prefHeight="25.0" prefWidth="149.0" promptText="Время конца" />
+            <Button fx:id="addTaskButton" layoutX="292.0" layoutY="267.0" mnemonicParsing="false" onAction="#addTask" style="-fx-background-color: transparent; -fx-border-color: black;" text="Добавить задание" />
+            <Label fx:id="addEmployeeError" layoutX="279.0" layoutY="328.0" text="Label" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="mainAnchorPane" layoutX="6.0" layoutY="6.0" prefHeight="388.0" prefWidth="139.0" style="-fx-background-color: #ff2200;">
+         <children>
+            <AnchorPane prefHeight="394.0" prefWidth="150.0">
+               <children>
+                  <Button fx:id="showProjectsPaneButton" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" onAction="#showProjects" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Просмотр проектов" />
+                  <Button fx:id="showTasksPaneButton" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" onAction="#showTasks" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Просмотр заданий" />
+                  <Button fx:id="showWorkersPaneButton" layoutX="7.0" layoutY="61.0" mnemonicParsing="false" onAction="#showWorkers" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Просмотр рабочих" />
+                  <Button fx:id="addTaskPaneButton" layoutX="7.0" layoutY="115.0" mnemonicParsing="false" onAction="#showAddTask" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Добавить задание" />
+                  <Button fx:id="addWorkerPaneButton" layoutX="7.0" layoutY="88.0" mnemonicParsing="false" onAction="#showAddWorker" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Добавить рабочего" />
+                  <Button fx:id="graphPaneButton" layoutX="7.0" layoutY="142.0" mnemonicParsing="false" onAction="#showGraphPane" prefHeight="25.0" prefWidth="139.0" style="-fx-background-color: transparent; -fx-border-color: black;" text="Отчеты" />
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

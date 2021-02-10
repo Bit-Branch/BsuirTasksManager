@@ -1,0 +1,3 @@
+1. CRUD operations should return boolean value
+2. Add custom exceptions (e.g. DaoException)
+3. Add log system
